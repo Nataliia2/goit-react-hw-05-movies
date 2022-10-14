@@ -1,16 +1,16 @@
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { NavBar } from './Navigation/Navigation';
+import  HomePage  from './HomePage/HomePage';
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<NavBar />}/>
+          <Route index element={<HomePage />} />
+          
+        
+      </Routes>
+    </>
   );
 };
