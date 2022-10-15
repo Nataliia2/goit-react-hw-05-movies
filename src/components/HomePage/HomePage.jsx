@@ -1,5 +1,5 @@
-import { fetchRequest } from '../fetch';
 import { useState, useEffect } from 'react';
+import { apiTrending } from '../fetch';
 import { MovieItem } from '../MovieItem/MovieItem';
 import { Error, Title } from './HomePageStyle';
 
@@ -10,9 +10,10 @@ const HomePage = () => {
   useEffect(() => {
     fetchTreding();
   }, []);
+
   const fetchTreding = async () => {
     try {
-      const apiHomePage = await fetchRequest();
+      const apiHomePage = await apiTrending();
       return setMovies(apiHomePage);
     } catch (e) {
       setError(true);
@@ -21,6 +22,7 @@ const HomePage = () => {
 
   return (
     <>
+      
       {movies.length !== 0 && (
         <main>
           <Title>Tredding today</Title>

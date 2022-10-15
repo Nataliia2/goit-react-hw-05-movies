@@ -4,7 +4,6 @@ export const Wrapper = styled.header`
   display: flex;
   padding: 20px;
   padding-left: 80px;
-  background-color: #ebe1e1;
   border-bottom: 1px solid black;
   margin-bottom: 20px;
 `;
