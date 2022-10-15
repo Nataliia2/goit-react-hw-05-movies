@@ -20,18 +20,18 @@ export const apiSaerch = async name => {
 
 export const apiDetails = async id => {
   const responce = await axios.get(
-    `${BASE_URL}movie/${id}?api_key=${KEY}&language=en-US`);
+    `${BASE_URL}/movie/${id}?api_key=${KEY}&language=en-US`);
   return responce.data;
 };
 
 export const apiCast = async (id, data) => {
   const responce = await axios.get(
-    `${BASE_URL}movie/${id}/${data}?api_key=${KEY}&language=en-US`);
+    `${BASE_URL}/movie/${id}/${data}?api_key=${KEY}&language=en-US`);
   return responce.data.cast;
 };
 
 export const apiReviews = async (id, data) => {
   const responce = await axios.get(
-    `${BASE_URL}movie/${id}/${data}?api_key=${KEY}&language=en-US`);
+    `${BASE_URL}/movie/${id}/${data}?api_key=${KEY}&language=en-US`);
   return responce.data.results;
 };
