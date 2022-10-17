@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const LinkToBack = styled(Link)`
+
+export const Button = styled.button`
   display: flex;
   align-items: center;
   font-size: 15px;

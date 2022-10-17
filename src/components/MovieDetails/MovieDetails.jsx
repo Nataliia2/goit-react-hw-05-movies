@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate, Outlet } from 'react-router-dom';
 import {
   Wrapper,
-  LinkToBack,
+  Button,
   Img,
   Title,
   SubTitle,
@@ -10,6 +10,7 @@ import {
   Genre,
 } from './MovieDetailsStyle';
 import { HiChevronDoubleLeft } from 'react-icons/hi';
+
 
 const imageUrl = 'https://image.tmdb.org/t/p/w300';
 
@@ -25,8 +26,10 @@ export const MovieDetails = ({ data }) => {
   
   const year = new Date(release_date);
   const location = useLocation();
-
-  let backLink = location.state?.from ?? '/movies' ;
+  
+  const backLink = location.state?.from ?? '/';
+  const navigate = useNavigate();
+  const goBack = () => navigate(backLink);
   
   const genre = genres.map(({ id, name }) => {
     return <Genre key={id}>{name}</Genre>;
@@ -34,10 +37,12 @@ export const MovieDetails = ({ data }) => {
 
   return (
     <>
-      <LinkToBack to={backLink}>
-        <HiChevronDoubleLeft />
-        Go back
-      </LinkToBack>
+      
+        <Button type="button" onClick={goBack}>
+          <HiChevronDoubleLeft />
+          Go back
+        </Button>
+      
       <Wrapper>
         <Img src={`${imageUrl}${poster_path}`} alt={title} />
         <div>
@@ -50,6 +55,7 @@ export const MovieDetails = ({ data }) => {
           <SubTitle>Genres</SubTitle>
           {genre}
         </div>
+        <Outlet />
       </Wrapper>
     </>
   );
