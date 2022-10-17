@@ -29,7 +29,7 @@ export const MovieDetails = ({ data }) => {
   
   const backLink = location.state?.from ?? '/';
   const navigate = useNavigate();
-  const goBack = () => navigate(backLink);
+  const back = () => navigate(backLink);
   
   const genre = genres.map(({ id, name }) => {
     return <Genre key={id}>{name}</Genre>;
@@ -38,7 +38,7 @@ export const MovieDetails = ({ data }) => {
   return (
     <>
       
-        <Button type="button" onClick={goBack}>
+        <Button type="button" onClick={back}>
           <HiChevronDoubleLeft />
           Go back
         </Button>
