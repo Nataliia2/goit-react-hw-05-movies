@@ -20,7 +20,7 @@ export default function SearchBar({ onSubmit }) {
     
     return (
         <header>
-            <Form onSubmit={handleSubmit}>                
+            <Form onSubmit={handleSubmit}>
                 <Input
                 onChange={handleChange}
                 name="searchName"

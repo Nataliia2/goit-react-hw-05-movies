@@ -15,7 +15,6 @@ const imageUrl = 'https://image.tmdb.org/t/p/w300';
 
 export const MovieDetails = ({ data }) => {
   const {
-    id,
     title,
     release_date,
     poster_path,
@@ -27,10 +26,8 @@ export const MovieDetails = ({ data }) => {
   const year = new Date(release_date);
   const location = useLocation();
 
-  let backLink = location.state.from;
-  if (backLink === null) {
-    backLink = `/movies/${id}`;
-  }
+  let backLink = location.state?.from ?? '/movies' ;
+  
   const genre = genres.map(({ id, name }) => {
     return <Genre key={id}>{name}</Genre>;
   });

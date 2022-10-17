@@ -25,7 +25,7 @@ const DetailsPage = () => {
   
   return (
     <>
-      {error && <p>Sorry ( please try again</p>}
+      {error && <p>Sorry please try again</p>}
       {Object.keys(details).length !== 0 && (
         <main>
           <MovieDetails data={details} />
