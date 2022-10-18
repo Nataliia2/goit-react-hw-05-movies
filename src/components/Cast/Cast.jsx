@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiCast } from '../fetch';
 import { CastList } from './CastList';
+import { Loader } from '../Loader';
 
 const Cast = () => {
   const [cast, setCast] = useState(null);
@@ -26,6 +27,7 @@ const Cast = () => {
 
   return (
     <>
+      <Suspense fallback={<Loader />}></Suspense>
       {error && <p>Sorry ( please try again</p>}
       {cast !== null && <CastList list={cast} />}
     </>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useLocation, useNavigate, Outlet } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Wrapper,
   Button,
@@ -55,7 +55,7 @@ export const MovieDetails = ({ data }) => {
           <SubTitle>Genres</SubTitle>
           {genre}
         </div>
-        <Outlet />
+        
       </Wrapper>
     </>
   );

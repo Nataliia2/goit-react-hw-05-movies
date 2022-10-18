@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiReviews } from '../fetch';
-import { Dna  } from  'react-loader-spinner';
+import { Loader } from '../Loader';
 import { ReviewsList } from './ReviewsList';
 
 const Reviews = () => {
@@ -30,13 +30,7 @@ const Reviews = () => {
 
   return (
     <>
-      <Suspense fallback={<Dna
-                                visible={true}
-                                height="80"
-                                width="80"
-                                ariaLabel="dna-loading"
-                                wrapperStyle={{}}
-                                wrapperClass="dna-wrapper" />}>
+      <Suspense fallback={<Loader />}>
         {error && <p>Sorry ( please try again</p>}
         {review !== null && <ReviewsList data={review} />}
       </Suspense>

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import { SubTitle, Container, LinkStyle } from './AdditionalInfoStyle';
-import { Dna  } from  'react-loader-spinner';
+import { Loader } from '../Loader';
 
 export const AdditionalInfo = () => {
   const location = useLocation();
@@ -17,13 +17,7 @@ export const AdditionalInfo = () => {
           Reviews
         </LinkStyle>
       </Container>
-      <Suspense fallback={<Dna
-                                visible={true}
-                                height="80"
-                                width="80"
-                                ariaLabel="dna-loading"
-                                wrapperStyle={{}}
-                                wrapperClass="dna-wrapper" />}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>
